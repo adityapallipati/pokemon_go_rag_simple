@@ -1,5 +1,10 @@
 import unittest
+import os
+import sys
 from unittest.mock import patch, MagicMock
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
+
 from llm_pokemon_app.src.app import LLMApp
 
 

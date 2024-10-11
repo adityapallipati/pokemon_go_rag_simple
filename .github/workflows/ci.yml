@@ -32,12 +32,12 @@ jobs:
       - name: Run Pytest with Coverage
         run: |
           source venv/bin/activate
-          pytest --cov=./ --cov-report=xml
-          
+          pytest --cov=llm_pokemon_app --cov-config=.coveragerc --cov-report=term-missing
+
       - name: Run Pylint
         run: |
           source venv/bin/activate
-          pylint llm_pokemon_app/ --fail-under=80
+          pylint llm_pokemon_app/ --fail-under=8.0
 
       - name: Validate Pytest Coverage
         run: |

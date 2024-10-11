@@ -1,5 +1,9 @@
 import unittest
+import sys
+import os
 from unittest.mock import patch, MagicMock
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 from llm_pokemon_app.src.models.huggingface_model import HuggingFaceModel
 
 class TestHuggingFaceModel(unittest.TestCase):

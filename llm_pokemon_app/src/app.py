@@ -1,3 +1,4 @@
+# pylint: disable=import-error, no-name-in-module
 """
 This module provides a Streamlit-based app to interact with OpenAI, Hugging Face models,
 and Pokémon Go data. Users can input questions about Pokémon Go, and
@@ -5,11 +6,11 @@ receive responses from the chosen model.
 """
 
 import streamlit as st # type: ignore
-from llm_pokemon_app.src.models.rag_model import RAGModel
-from llm_pokemon_app.src.models.openai_model import OpenAIModel
-from llm_pokemon_app.src.models.huggingface_model import HuggingFaceModel
-from llm_pokemon_app.src.data.pokemon_data_loader import PokemonDataLoader
-from llm_pokemon_app.src.utils.langchain_helpers import (
+from src.models.rag_model import RAGModel
+from src.models.openai_model import OpenAIModel
+from src.models.huggingface_model import HuggingFaceModel
+from src.data.pokemon_data_loader import PokemonDataLoader
+from src.utils.langchain_helpers import (
     PokemonRetriever,
 )  # pylint: disable=import-error
 

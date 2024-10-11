@@ -1,0 +1,18 @@
+[run]
+# Include only the source code in your coverage analysis
+source = llm_pokemon_app/src
+
+[report]
+# Exclude specific files or directories from the coverage report
+omit =
+    llm_pokemon_app/test/*
+    
+# Set minimum pass score (optional, e.g., 80%)
+fail_under = 80
+
+# Exclude lines from coverage
+exclude_lines =
+    pragma: no cover
+
+    # Don't include debug-related code
+    if __name__ == .__main__.:
