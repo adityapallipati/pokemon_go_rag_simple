@@ -66,7 +66,7 @@ cd llm-pokemon-app/src/
 streamlit run app.py
 ```
 
-### This simple llm app highlights the difference between large language models and showcases a general of streamlit and langchain for rapid development/prototyping.
+### This simple llm app highlights the difference between large language models and showcases general use of streamlit and langchain for rapid development/prototyping.
 
 The results from OpenAI API + RAG:
 
@@ -74,9 +74,12 @@ Prompt: What is the best great league team in pokemon go?
 
 Response: The best Great League team can vary based on the current meta, but a strong combination often includes:
 
-Altaria (Dragon/Flying) – Great bulk and access to powerful moves like Sky Attack.
-Galarian Stunfisk (Ground/Steel) – Excellent typing and moveset with Mud Shot and Earthquake.
-Deoxys (Defense Forme) (Psychic) – Great bulk and access to counter moves like Counter and Psycho Boost.
+Altaria (Dragon/Flying) 
+– Great bulk and access to powerful moves like Sky Attack.
+Galarian Stunfisk (Ground/Steel)
+– Excellent typing and moveset with Mud Shot and Earthquake.
+Deoxys (Defense Forme) (Psychic) 
+– Great bulk and access to counter moves like Counter and Psycho Boost.
 This trio covers many prevalent threats and provides good synergy. Always consider adjusting your team based on the current meta and your playstyle!
 
 The results from TinyLlama:
