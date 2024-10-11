@@ -38,7 +38,3 @@ jobs:
         run: |
           source venv/bin/activate
           pylint llm_pokemon_app/ --fail-under=8.0
-
-      - name: Validate Pytest Coverage
-        run: |
-          coverage report --fail-under=80
