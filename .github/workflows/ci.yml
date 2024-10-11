@@ -1,0 +1,44 @@
+name: Python CI/CD
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'  # Adjust the Python version as needed
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov pylint
+
+      - name: Run Pytest with Coverage
+        run: |
+          source venv/bin/activate
+          pytest --cov=./ --cov-report=xml
+          
+      - name: Run Pylint
+        run: |
+          source venv/bin/activate
+          pylint llm_pokemon_app/ --fail-under=80
+
+      - name: Validate Pytest Coverage
+        run: |
+          coverage report --fail-under=80
