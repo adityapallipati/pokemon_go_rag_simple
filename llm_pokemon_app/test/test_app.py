@@ -5,16 +5,16 @@ from unittest.mock import patch, MagicMock
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 
-from llm_pokemon_app.src.app import LLMApp
+from llm_pokemon_app.app import LLMApp
 
 
 class TestLLMApp(unittest.TestCase):
 
-    @patch('llm_pokemon_app.src.app.st.write')
-    @patch('llm_pokemon_app.src.app.st.button')
-    @patch('llm_pokemon_app.src.app.st.selectbox')
-    @patch('llm_pokemon_app.src.app.st.text_input')
-    @patch('llm_pokemon_app.src.app.OpenAIModel')
+    @patch('llm_pokemon_app.app.st.write')
+    @patch('llm_pokemon_app.app.st.button')
+    @patch('llm_pokemon_app.app.st.selectbox')
+    @patch('llm_pokemon_app.app.st.text_input')
+    @patch('llm_pokemon_app.app.OpenAIModel')
     def test_openai_model_response(self, mock_openai_model, mock_text_input, mock_selectbox, mock_button, mock_write):
         # Simulate the text input for API key and question
         mock_text_input.side_effect = ["fake_openai_api_key", "", "What is the best Pokémon in Pokémon Go?"]
@@ -33,11 +33,11 @@ class TestLLMApp(unittest.TestCase):
         # Assert st.write was called with expected values
         mock_write.assert_called_with("Response:", "Mewtwo is the best Pokémon.")
 
-    @patch('llm_pokemon_app.src.app.st.write')
-    @patch('llm_pokemon_app.src.app.st.button')
-    @patch('llm_pokemon_app.src.app.st.selectbox')
-    @patch('llm_pokemon_app.src.app.st.text_input')
-    @patch('llm_pokemon_app.src.app.HuggingFaceModel')
+    @patch('llm_pokemon_app.app.st.write')
+    @patch('llm_pokemon_app.app.st.button')
+    @patch('llm_pokemon_app.app.st.selectbox')
+    @patch('llm_pokemon_app.app.st.text_input')
+    @patch('llm_pokemon_app.app.HuggingFaceModel')
     def test_huggingface_model_response(self, mock_huggingface_model, mock_text_input, mock_selectbox, mock_button, mock_write):
         # Simulate the text input for API key and question
         mock_text_input.side_effect = ["", "fake_huggingface_api_key", "What are Charizard's moves?"]
@@ -56,11 +56,11 @@ class TestLLMApp(unittest.TestCase):
         # Assert st.write was called with expected values
         mock_write.assert_called_with("Response:", "Charizard has Fire Spin and Blast Burn.")
 
-    @patch('llm_pokemon_app.src.app.st.write')
-    @patch('llm_pokemon_app.src.app.st.button')
-    @patch('llm_pokemon_app.src.app.st.selectbox')
-    @patch('llm_pokemon_app.src.app.st.text_input')
-    @patch('llm_pokemon_app.src.app.RAGModel')
+    @patch('llm_pokemon_app.app.st.write')
+    @patch('llm_pokemon_app.app.st.button')
+    @patch('llm_pokemon_app.app.st.selectbox')
+    @patch('llm_pokemon_app.app.st.text_input')
+    @patch('llm_pokemon_app.app.RAGModel')
     def test_rag_model_response(self, mock_rag_model, mock_text_input, mock_selectbox, mock_button, mock_write):
         # Simulate the text input for API key and question
         mock_text_input.side_effect = ["fake_openai_api_key", "", "What is the highest DPS Pokémon?"]
