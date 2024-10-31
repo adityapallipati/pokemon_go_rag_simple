@@ -6,11 +6,11 @@ receive responses from the chosen model.
 """
 
 import streamlit as st # type: ignore
-from src.models.rag_model import RAGModel
-from src.models.openai_model import OpenAIModel
-from src.models.huggingface_model import HuggingFaceModel
-from src.data.pokemon_data_loader import PokemonDataLoader
-from src.utils.langchain_helpers import (
+from models.rag_model import RAGModel
+from models.openai_model import OpenAIModel
+from models.huggingface_model import HuggingFaceModel
+from data.pokemon_data_loader import PokemonDataLoader
+from utils.langchain_helpers import (
     PokemonRetriever,
 )  # pylint: disable=import-error
 
