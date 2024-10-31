@@ -1,11 +1,13 @@
-name: Python CI/CD
+name: Pokemon Go Streamlit App CI/CD
 
 on:
   push:
     branches:
+      - develop
       - master
   pull_request:
     branches:
+      - develop
       - master
 
 jobs:
@@ -19,7 +21,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.11'  # Adjust the Python version as needed
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -38,3 +40,36 @@ jobs:
         run: |
           source venv/bin/activate
           pylint llm_pokemon_app/ --fail-under=8.0
+
+  docker-build:
+    # This job runs only on the develop branch
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    needs: test-and-lint
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Log in to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/pokemon_go_rag_simple:latest
+
+  streamlit-deploy:
+    # This job runs only on the master branch
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    needs: test-and-lint
+
+    steps:
+      - name: Deploy to Streamlit
+        run: echo "Push to master triggers redeployment on Streamlit Community Cloud."
