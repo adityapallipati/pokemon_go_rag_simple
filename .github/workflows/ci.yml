@@ -62,7 +62,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: your-dockerhub-username/pokemon_go_rag_simple:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/pokemon_go_rag_simple:latest
 
   streamlit-deploy:
     # This job runs only on the master branch
