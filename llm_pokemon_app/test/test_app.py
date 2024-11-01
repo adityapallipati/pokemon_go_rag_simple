@@ -72,7 +72,7 @@ class TestLLMApp(unittest.TestCase):
         mock_rag_instance.get_response.return_value = "Mewtwo has the highest DPS."
         mock_rag_model.return_value = mock_rag_instance
 
-        # Instantiate the app and run the main method
+        # Instantiate the app and run the main method 
         app = LLMApp()
         app.main()
 
