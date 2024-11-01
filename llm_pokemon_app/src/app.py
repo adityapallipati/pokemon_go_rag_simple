@@ -4,8 +4,12 @@ This module provides a Streamlit-based app to interact with OpenAI, Hugging Face
 and Pokémon Go data. Users can input questions about Pokémon Go, and
 receive responses from the chosen model.
 """
-
+import os
+import sys
 import streamlit as st # type: ignore
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+
 from llm_pokemon_app.src.models.rag_model import RAGModel
 from llm_pokemon_app.src.models.openai_model import OpenAIModel
 from llm_pokemon_app.src.models.huggingface_model import HuggingFaceModel
