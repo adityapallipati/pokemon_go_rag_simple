@@ -1,0 +1,10 @@
+[MASTER]
+ignore=test
+
+[MESSAGES CONTROL]
+# Disable specific warnings if you need to:
+# disable=missing-docstring, too-few-public-methods
+
+[FORMAT]
+# You can also adjust the maximum line length if needed.
+max-line-length=100
