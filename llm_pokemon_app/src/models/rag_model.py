@@ -3,7 +3,9 @@ This module provides a RAG (Retrieval-Augmented Generation) model
 that combines Pokémon Go data retrieval with OpenAI API response generation.
 """
 
-from openai import OpenAI  # type: ignore # pylint: disable=import-error
+from openai import OpenAI
+
+from llm_pokemon_app.src.utils.langchain_helpers import PokemonRetriever  # type: ignore # pylint: disable=import-error
 
 
 class RAGModel:
